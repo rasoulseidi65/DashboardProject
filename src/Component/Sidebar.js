@@ -61,6 +61,74 @@ export default class Sidebar extends Component {
                                         </li>
                                     </ul>
                                 </li>
+
+                                <li className="nav-item has-treeview">
+                                    <a href="#" className="nav-link">
+                                        <i className="nav-icon fa fa-newspaper"></i>
+                                        <p>
+                                            News
+                                            <i className="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                    <ul className="nav nav-treeview">
+                                        <li className="nav-item">
+                                            <a href="pages/news/GroupNews.html" className="nav-link">
+                                                <i className="far fa-circle nav-icon"></i>
+                                                <p>GroupNews</p>
+                                            </a>
+                                        </li>
+                                        <li className="nav-item has-treeview">
+                                            <a href="#" className="nav-link">
+                                                <i className="far fa-circle nav-icon"></i>
+                                                <p>
+                                                    News
+                                                    <i className="right fas fa-angle-left"></i>
+                                                </p>
+                                            </a>
+                                            <ul className="nav nav-treeview">
+                                                <li className="nav-item">
+                                                    <a href="#" className="nav-link">
+                                                        <i className="far fa-dot-circle nav-icon"></i>
+                                                        <p>GroupName</p>
+                                                    </a>
+                                                </li>
+                                                <li className="nav-item">
+                                                    <a href="#" className="nav-link">
+                                                        <i className="far fa-dot-circle nav-icon"></i>
+                                                        <p>Title</p>
+                                                    </a>
+                                                </li>
+                                                <li className="nav-item">
+                                                    <a href="#" className="nav-link">
+                                                        <i className="far fa-dot-circle nav-icon"></i>
+                                                        <p>Abstract</p>
+                                                    </a>
+                                                </li>
+                                                <li className="nav-item">
+                                                    <a href="#" className="nav-link">
+                                                        <i className="far fa-dot-circle nav-icon"></i>
+                                                        <p>Detail</p>
+                                                    </a>
+                                                </li>
+                                                <li className="nav-item">
+                                                    <a href="#" className="nav-link">
+                                                        <i className="far fa-dot-circle nav-icon"></i>
+                                                        <p>Image</p>
+                                                    </a>
+                                                </li>
+                                                <li className="nav-item">
+                                                    <a href="#" className="nav-link">
+                                                        <i className="far fa-dot-circle nav-icon"></i>
+                                                        <p>AddNews</p>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+
                                 <li className="nav-item">
                                     <a href="pages/widgets.html" className="nav-link">
                                         <i className="nav-icon fas fa-th"></i>
