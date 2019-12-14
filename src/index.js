@@ -4,9 +4,10 @@ import App from "./Component/App";
 
 
 
-render(
 
-    <App />,
+render(
+       <App/>,
+
 
     document.getElementById('root'));
 

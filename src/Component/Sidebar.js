@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from "react-router-dom";
 
 export default class Sidebar extends Component {
     render() {
@@ -6,12 +7,12 @@ export default class Sidebar extends Component {
             <div>
                 <aside className="main-sidebar sidebar-dark-primary elevation-4">
 
-                    <a href="index3.html" className="brand-link">
+                    <Link to="/dashboard" className="brand-link">
                         <img src="/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
                              className="brand-image img-circle elevation-3"
                              style={{opacity: .8}}/>
-                            <span className="brand-text font-weight-light">AdminLTE 3</span>
-                    </a>
+                            <span className="brand-text font-weight-light">AdminLTE</span>
+                    </Link>
 
 
                     <div className="sidebar">
@@ -41,22 +42,22 @@ export default class Sidebar extends Component {
                                     </a>
                                     <ul className="nav nav-treeview">
                                         <li className="nav-item">
-                                            <a href="./index.html" className="nav-link active">
+                                            <Link to="/dashboard" className="nav-link ">
                                                 <i className="far fa-circle nav-icon"></i>
                                                 <p>Dashboard v1</p>
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li className="nav-item">
-                                            <a href="./index2.html" className="nav-link">
+                                            <Link to="/dashboardv2" className="nav-link">
                                                 <i className="far fa-circle nav-icon"></i>
                                                 <p>Dashboard v2</p>
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li className="nav-item">
-                                            <a href="./index3.html" className="nav-link">
+                                            <Link to="/dashboardv3" className="nav-link">
                                                 <i className="far fa-circle nav-icon"></i>
                                                 <p>Dashboard v3</p>
-                                            </a>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </li>
