@@ -21,12 +21,16 @@ export default class GroupNews extends React.Component {
       .then(response => console.log(response.data))
       .catch(error => console.log("err" + error));
   }
-  addCustomer=_=>{
-    const {customer}=this.state;
-    fetch(`http://localhost:3000/api/v1/admin/groupnews?group_name=${this.state.group_name}`)
-      
-        .then(response=>console.log(response))
-        .catch(err=>console.log(err))
+  addCustomer(){
+    const group_name='rrrrr';
+    fetch('http://localhost:3000/api/v1/admin/groupnews', {
+      method: 'post',
+      body:{
+        "group_name": this.state.group_name
+       }
+    }).then(function(response) {
+      return response.json();
+    })
 }
   async addGroupnews() {
     const group_name = {
@@ -65,7 +69,7 @@ export default class GroupNews extends React.Component {
               <form action="">
                 <div className="form-group">
                   <label>GroupNews:</label>
-                  <input
+                  <input  ref="first_name"
                     className="form-control"
                     value={this.state.group_name}
                     onChange={this.handleChange}

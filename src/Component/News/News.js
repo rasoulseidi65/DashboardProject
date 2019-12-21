@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { MDBDataTable } from "mdbreact";
+import axios from "axios";
 const data = {
   columns: [
     {
@@ -213,8 +214,46 @@ const data = {
     }
   ]
 };
-export default function News() {
+export default class News extends Component {
+  constructor(prpos){
+  super();
+    this.state={
+      group_name:[],
+      data: {
+       
+        title: 'erwe',
+        abstract: 'erwe',
+        detail:'ere',
+        image:'http://www.sanjesh.org/data/image/news/6356.jpg',
+        group_name: 'werer',
+    }
+    }
+    this.getGroupnews();
+  }
+  async addNews(event) {
+    event.preventDefault();
+    console.log('onFormSubmit : ', this.state.data); 
+    const data=this.state.data;
+    
+    console.log(data); 
+    await axios
+      .post(`http://localhost:3001/api/v1/admin/news`,this.state.data)
+      .then(response => console.log(response))
+      .catch(err => console.log(err));
+  }
+  async getGroupnews() {
+    await axios
+      .get("http://localhost:3001/api/v1/admin/groupnews")
+      .then(response => {console.log(response.data);
+      this.setState({group_name:response.data});
+     
+      })
+      .catch(error => console.log("err" + error));
+  }
+  render(){
+    const { group_name,data }=this.state;
   return (
+
     <div className="content-wrapper">
       <section className="content-header">
         <div className="container-fluid">
@@ -238,16 +277,25 @@ export default function News() {
           <h3 className="card-title">Add news</h3>
         </div>
 
-        <form role="form">
+      
           <div className="card-body">
             <div className="form-group">
               <label for="exampleInputEmail1">Group name:</label>
-              <select className="form-control">
-                <option>House</option>
-                <option>Vila</option>
-                <option>option 3</option>
-                <option>option 4</option>
-                <option>option 5</option>
+              <select className="form-control"
+              value={data.group_name}
+              onChange={e=>this.setState({data:{...data,group_name:e.target.value}})}
+
+              >
+              {
+               
+                this.state.group_name.map(function(item, i){
+                 
+                  return <option key={i}>{item.group_name}</option>
+                })
+                
+              }
+             
+               
               </select>{" "}
             </div>
             <div className="form-group">
@@ -257,6 +305,8 @@ export default function News() {
                 className="form-control"
                 id="exampleInputPassword1"
                 placeholder="Title news"
+                value={data.title}
+                onChange={e=>this.setState({data:{...data,title:e.target.value}})}
               />
             </div>
             <div className="form-group">
@@ -266,11 +316,17 @@ export default function News() {
                 className="form-control"
                 id="exampleInputPassword1"
                 placeholder="Abstract news"
+                value={data.abstract}
+                onChange={e=>this.setState({data:{...data,abstract:e.target.value}})}
+
               />
             </div>
             <div className="form-group">
               <label for="exampleInputPassword1">Detail news:</label>
               <CKEditor
+                value={data.detaile}
+                onChange={e=>this.setState({data:{...data,detaile:e.target.value}})}
+
                 editor={ClassicEditor}
                 data=""
                 onInit={editor => {
@@ -321,11 +377,13 @@ export default function News() {
           </div>
 
           <div className="card-footer">
-            <button type="submit" className="btn btn-primary">
+            <button  className="btn btn-primary" 
+            onClick={(e) => this.addNews(e)} 
+            >
               Submit
             </button>
           </div>
-        </form>
+       
       </div>
       <div className="container">
       <MDBDataTable striped bordered hover data={data} />
@@ -345,4 +403,5 @@ export default function News() {
       </style>
     </div>
   );
+    }
 }

@@ -11,7 +11,7 @@ export default class Sidebar extends Component {
                         <img src="/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
                              className="brand-image img-circle elevation-3"
                              style={{opacity: .8}}/>
-                            <span className="brand-text font-weight-light">AdminLTE</span>
+                            <span className="brand-text font-weight-light">ENTRALON</span>
                     </Link>
 
 
@@ -23,7 +23,7 @@ export default class Sidebar extends Component {
                                      alt="User Image"/>
                             </div>
                             <div className="info">
-                                <a href="#" className="d-block">Alexander Pierce</a>
+                                <a href="#" className="d-block">Rasoul Seidi</a>
                             </div>
                         </div>
 
@@ -85,7 +85,25 @@ export default class Sidebar extends Component {
 
                                     </ul>
                                 </li>
+                                <li className="nav-item has-treeview">
+                                <a href="#" className="nav-link">
+                                    <i className="nav-icon fas fa-chart-pie"></i>
+                                    <p>
+                                        Property
+                                        <i className="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul className="nav nav-treeview">
+                                    <li className="nav-item">
+                                        <Link to="/property" className="nav-link">
+                                            <i className="far fa-circle nav-icon"></i>
+                                            <p>Add Property</p>
+                                        </Link>
+                                    </li>
+                                   
 
+                                </ul>
+                            </li>
 
                                 <li className="nav-item">
                                     <a href="pages/widgets.html" className="nav-link">
